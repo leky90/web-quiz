@@ -34,9 +34,10 @@ export function StageIntro(props: GroupProps) {
                 Quiz game? <meshPhysicalMaterial color="#FECE32" />
               </Text3dBold>
               {/* <TypingText position={[-5.5, -1, 0]} /> */}
-              <Html position={[0, -1, 0]} center transform>
+              <Html position={[-6, -2, 0]} center transform>
                 <div className="p-4 bg-secondary/70 space-y-4 w-96">
-                  Chọn số lượng câu hỏi rồi bấm nút `Start Quiz`
+                  Chọn số lượng câu hỏi rồi bấm nút `Start Quiz` <br />
+                  Nhấp chuột trái/phải lên các icon để tăng/giảm số lượng.
                 </div>
               </Html>
             </group>

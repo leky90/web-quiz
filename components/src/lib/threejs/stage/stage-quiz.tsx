@@ -182,8 +182,14 @@ export function StageQuiz(props: GroupProps) {
             </group>
             {loading && (
               <Html center position={[0, 0, 0]}>
-                <div className="p-4 bg-secondary/70 space-y-4 w-96">
-                  Đang chuẩn bị bộ câu hỏi. Vui lòng chờ trong giây lát!
+                <div className="p-4 bg-secondary/70 space-y-4 w-[500px]">
+                  Đang chuẩn bị bộ câu hỏi. Vui lòng chờ trong giây lát! <br />
+                  <small>
+                    <em>
+                      (Số lượng câu hỏi càng nhiều thì sẽ càng mất nhiều thời
+                      gian.)
+                    </em>
+                  </small>
                 </div>
               </Html>
             )}
