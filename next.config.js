@@ -12,6 +12,10 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  transpilePackages: ['framer-motion-3d', 'openai'],
+  experimental: {
+    serverActions: true,
+  },
 };
 
 const plugins = [

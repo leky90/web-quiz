@@ -1,0 +1,35 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "components": ["components/src/index.ts"],
+      "components/server": ["components/src/server.ts"],
+      "datas": ["datas/src/index.ts"],
+      "hooks": ["hooks/src/index.ts"],
+      "service": ["service/src/index.ts"],
+      "utils": ["utils/src/index.ts"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "tmp",
+    "jest.config.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "**e2e/**/*",
+    "dist/web-quiz/**/*"
+  ]
+}
