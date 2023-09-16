@@ -180,7 +180,7 @@ export function StageQuiz(props: GroupProps) {
 
               <ButtonBackIntro position={[-2, -5, 0]} />
             </group>
-            {loading && (
+            {loading ? (
               <Html center position={[0, 0, 0]}>
                 <div className="p-4 bg-secondary/70 space-y-4 w-[500px]">
                   Đang chuẩn bị bộ câu hỏi. Vui lòng chờ trong giây lát! <br />
@@ -192,6 +192,14 @@ export function StageQuiz(props: GroupProps) {
                   </small>
                 </div>
               </Html>
+            ) : (
+              quizzes.length === 0 && (
+                <Html center position={[0, 0, 0]}>
+                  <div className="p-4 bg-secondary/70 space-y-4 w-[500px]">
+                    Có lỗi xảy ra, không thể khởi tạo bộ câu hỏi.
+                  </div>
+                </Html>
+              )
             )}
 
             {/* {quizIndex >= quizzes.length &&

@@ -37,7 +37,11 @@ export function StageIntro(props: GroupProps) {
               <Html position={[-6, -2, 0]} center transform>
                 <div className="p-4 bg-secondary/70 space-y-4 w-96">
                   Chọn số lượng câu hỏi rồi bấm nút `Start Quiz` <br />
-                  Nhấp chuột trái/phải lên các icon để tăng/giảm số lượng.
+                  <small>
+                    <em>
+                      (Nhấp chuột trái/phải lên các icon để tăng/giảm số lượng.)
+                    </em>
+                  </small>
                 </div>
               </Html>
             </group>

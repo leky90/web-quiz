@@ -1,4 +1,4 @@
-import { Quiz } from 'datas';
+import { BASE_QUIZ, Quiz } from 'datas';
 
 export async function getQuizzesService({
   totalJs,
@@ -13,7 +13,11 @@ export async function getQuizzesService({
   data: { questions: Quiz[]; quizId: string } | null;
 }> {
   try {
-    const url = `/api/get-quizzes?totalJs=${totalJs}&totalCss=${totalCss}&totalHtml=${totalHtml}`;
+    const url = `${
+      process.env['NEXT_PUBLIC_BASE_API_HOSTNAME']
+    }/api/get-quizzes?totalJs=${totalJs || BASE_QUIZ}&totalCss=${
+      totalCss || BASE_QUIZ
+    }&totalHtml=${totalHtml || BASE_QUIZ}`;
     const res = await fetch(url, {
       next: { revalidate: 600, tags: ['quizzes'] },
     } as RequestInit);

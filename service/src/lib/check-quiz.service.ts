@@ -11,7 +11,7 @@ export async function checkQuizService({
   quizId: string;
 }): Promise<{ success: boolean; answer?: Answer & { choices: number[] } }> {
   try {
-    const url = `/api/check-quiz/${quizId}`;
+    const url = `${process.env['NEXT_PUBLIC_BASE_API_HOSTNAME']}/api/check-quiz/${quizId}`;
     const res = await axios(url, { method: 'POST', data: { index, choices } });
 
     if (!res.status) {

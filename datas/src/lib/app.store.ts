@@ -30,7 +30,13 @@ export type QuizSetup = {
 export type Quiz = {
   question: string;
   choices: [string, string, string, string];
-  level: 'beginner' | 'intermediate' | 'advanced';
+  level:
+    | 'Beginner'
+    | 'Elementary'
+    | 'Intermediate'
+    | 'Above Intermediate'
+    | 'Advanced'
+    | 'Proficient';
   type: string;
 };
 

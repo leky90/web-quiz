@@ -14,8 +14,6 @@ export function ActiveUsers() {
           z: number
         ];
 
-        console.log(user.id, 'currentPosition', currentPosition);
-
         return (
           <motion.group
             initial={{ x: 0, z: 0, y: 0 }}

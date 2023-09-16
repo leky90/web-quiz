@@ -20,14 +20,14 @@ export async function GET(request: Request) {
   const totalCss = Number(searchParams.get('totalCss')) || BASE_QUIZ;
   const totalQuestions = totalCss + totalJs + totalHtml;
 
-  const prompt = `Create ${totalQuestions} multiple choice questions about knowledge of Javascript, CSS, and HTML, questions cannot be duplicated, the number of questions about Javascript is ${totalJs}, the number of questions about HTML is ${totalHtml}, the number of questions about CSS is ${totalCss}, there may be one or more correct options, accompanied by an explanation for the correct answer.  Provide output in minify JSON format as follows:
+  const prompt = `Create ${totalQuestions} multiple choice questions about knowledge of Javascript, CSS, and HTML, the difficulty of the question is "Beginner" or "Elementary" or "Intermediate" or "Above Intermediate" or "Advanced" or "Proficient" questions cannot be duplicated, the number of questions about Javascript is ${totalJs}, the number of questions about HTML is ${totalHtml}, the number of questions about CSS is ${totalCss}, there may be one or more correct options, accompanied by an explanation for the correct answer. Provide output in minify JSON format as follows:
   
   {
       "questions": [{
           question: string,
           choices: [string, string, string, string],
-          level: "beginner" | "intermediate" | "advanced",
-          type: "Javascript" | "CSS" | "HTML"
+          level: "Beginner" or "Elementary" or "Intermediate" or "Above Intermediate" or "Advanced" or "Proficient",
+          type: "Javascript" or "CSS" or "HTML"
       }],
       "answers": [{
           correct: [number, ...],
@@ -41,6 +41,7 @@ export async function GET(request: Request) {
         messages: [{ role: 'user', content: prompt }],
         max_tokens: 16000,
         model: 'gpt-3.5-turbo-16k-0613',
+        temperature: 1,
       }
     );
 
