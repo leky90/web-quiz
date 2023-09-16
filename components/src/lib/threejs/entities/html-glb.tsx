@@ -3,7 +3,7 @@ import { ThreeEvent } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
 import { useState } from 'react';
 import { Text3d } from '../object/text-3d';
-import { BASE_QUIZ, MAX_QUIZ, MIN_QUIZ, useAppStore } from 'datas';
+import { MAX_QUIZ, MIN_QUIZ, useAppStore } from 'datas';
 
 const srcHtmlGlb = '/models/html.glb';
 
@@ -13,7 +13,6 @@ export function HtmlGlb() {
     state.setQuizSetup,
     state.stage,
   ]);
-  const [number, setNumber] = useState(BASE_QUIZ);
   const [hovered, set] = useState(false);
   useCursor(hovered);
 
@@ -23,16 +22,16 @@ export function HtmlGlb() {
     if (stage !== 'intro') return;
 
     const newQuizSetup = { ...quizSetup };
+    const totalQuiz =
+      newQuizSetup.totalCss + newQuizSetup.totalHtml + newQuizSetup.totalJs;
 
     if (e.button) {
-      if (number - 1 < MIN_QUIZ) return;
+      if (totalQuiz - 1 < MIN_QUIZ) return;
 
-      setNumber(number - 1);
       newQuizSetup.totalHtml--;
     } else {
-      if (number + 1 > MAX_QUIZ) return;
+      if (totalQuiz + 1 > MAX_QUIZ) return;
 
-      setNumber(number + 1);
       newQuizSetup.totalHtml++;
     }
 
@@ -51,7 +50,7 @@ export function HtmlGlb() {
     >
       <Center top position={[0, 0, 1.6]} visible={stage === 'intro'}>
         <Text3d size={0.3} height={0.05} rotation={[Math.PI / 2, 0, 0]}>
-          {number}
+          {quizSetup.totalHtml}
         </Text3d>
       </Center>
       <Gltf

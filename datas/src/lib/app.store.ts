@@ -2,7 +2,7 @@ import { Vector3 } from '@react-three/fiber';
 import { immer } from 'zustand/middleware/immer';
 import { StateCreator, create } from 'zustand';
 import { PersistOptions, devtools } from 'zustand/middleware';
-import { BASE_QUIZ, MOVE_SPEED, TOTAL_QUIZ } from './app.constant';
+import { BASE_QUIZ, MOVE_SPEED } from './app.constant';
 
 export enum Controls {
   forward = 'forward',
